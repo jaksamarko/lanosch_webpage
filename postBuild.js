@@ -39,4 +39,6 @@ function openFolder(path) {
         return [];
     }
 }
-writeFileSync(join(__dirname,"src/data/pages.json"),JSON.stringify(openFolder("./pages").flat(),null,2));
+const pages = openFolder("./pages").flat();
+pages.sort((a,b)=>b.date-a.date);
+writeFileSync(join(__dirname,"src/data/pages.json"),JSON.stringify(pages,null,2));

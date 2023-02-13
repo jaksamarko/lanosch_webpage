@@ -41,7 +41,6 @@ const PostsLayout = ({}) => {
 
   return (
     <>
-      <Navbar />
       <section className="pt-20 pb-10 lg:pt-[120px] lg:pb-20">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
@@ -117,8 +116,6 @@ const PostsLayout = ({}) => {
           </div>
         </div>
       </section>
-      <Footer />
-      <BackToTop />
     </>
   );
 };
