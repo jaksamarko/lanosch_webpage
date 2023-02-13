@@ -14,6 +14,7 @@ Production:
   image: ruby:latest
   only:
     - master
+    - MarkoTestBranch
   stage: deploy_production
   script:
     - apt-get update -qy
