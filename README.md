@@ -24,4 +24,4 @@ Coming soon!
 
 ### About the project
 
-This is just a proof of concept that I could make a better website for my university group with up-to-date features, nice design and etc.
+This is just a proof of concept that I could make a better website for my university group with up-to-date features, nice design and etc.  
