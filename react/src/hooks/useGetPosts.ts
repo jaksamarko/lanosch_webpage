@@ -5,7 +5,7 @@ function useGetPosts() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    fetch(`${(import.meta as any).env.VITE_BACKEND}api/posts`)
+    fetch(`${(import.meta as any).env.VITE_BACKEND}/api/posts`)
       .then((res) => res.json())
       .then((post) => {
         console.log("Hook");

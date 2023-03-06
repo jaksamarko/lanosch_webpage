@@ -1,7 +1,10 @@
 import teamMembers from "../data/TeamMembers";
+import useGetMembers from "../hooks/useGetMembers";
 import TeamProfile from "./Team/TeamProfile";
 
 const Team = () => {
+  const members = useGetMembers();
+
   return (
     <section id="team" className="pt-20 pb-10 lg:pt-[120px] lg:pb-20">
       <div className="container">
@@ -22,9 +25,10 @@ const Team = () => {
         </div>
 
         <div className="-mx-4 flex flex-wrap justify-center">
-          {teamMembers.map((v, ind) => {
-            return <TeamProfile {...v} key={ind} />;
-          })}
+          {Boolean(members) &&
+            members.map((v, ind) => {
+              return <TeamProfile {...v} key={ind} />;
+            })}
         </div>
       </div>
     </section>

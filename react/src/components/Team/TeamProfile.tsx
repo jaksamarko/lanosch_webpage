@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { ProfileSocials, TeamProfileInterface } from "../../data/TeamMembers";
+import { ProfileSocials } from "../../data/TeamMembers";
+import MemberInterface from "../../interfaces/members.interface";
 import Alert from "../Misc/Alert";
 
-const TeamProfile = (data: TeamProfileInterface) => {
+const TeamProfile = (data: MemberInterface) => {
   const [alertState, setAlertState] = useState<any[]>([]);
 
   function getSocialIcon(name: string) {
@@ -55,7 +56,9 @@ const TeamProfile = (data: TeamProfileInterface) => {
           </svg>
         );
       case "pek":
-        return <img src={"/assets/images/pek_logo.png"} className={"brightness"} />;
+        return (
+          <img src={"/assets/images/pek_logo.png"} className={"brightness"} />
+        );
     }
   }
 
@@ -64,16 +67,18 @@ const TeamProfile = (data: TeamProfileInterface) => {
       <div className="wow fadeInUp mb-10" data-wow-delay=".1s">
         <div className="h-[170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full block">
           <img
-            src={data.image}
+            src={data.attributes.url}
             className="w-full rounded-full transition group-hover:rotate-6 group-hover:scale-125"
           />
         </div>
         <div className="text-center">
-          <h4 className="mb-2 text-lg font-medium text-dark">{data.name}</h4>
+          <h4 className="mb-2 text-lg font-medium text-dark">
+            {data.attributes.name}
+          </h4>
           <p className="mb-5 text-sm font-medium text-body-color">
-            {data.role}
+            {data.attributes.rank}
           </p>
-          <div className="flex items-center justify-center">
+          {/* <div className="flex items-center justify-center">
             {Object.keys(data.socials).map((v, ind) => {
               return (
                 <button
@@ -109,7 +114,7 @@ const TeamProfile = (data: TeamProfileInterface) => {
                 </button>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
       {alertState}

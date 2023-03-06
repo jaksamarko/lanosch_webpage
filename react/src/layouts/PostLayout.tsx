@@ -8,11 +8,10 @@ import IconTwitter from "../components/Misc/IconTwitter";
 import { BlogPost } from "../interfaces/blogPost.interface";
 
 const PostLayout = ({}) => {
-  const navigate = useNavigate();
   const id = useParams().id;
   const [post, setPost] = useState<BlogPost | null>(null);
   useEffect(() => {
-    fetch(`${(import.meta as any).env.VITE_BACKEND}api/posts/${id}`)
+    fetch(`${(import.meta as any).env.VITE_BACKEND}/api/posts/${id}`)
       .then((res) => res.json())
       .then((ret) => {
         console.log(ret.data);
