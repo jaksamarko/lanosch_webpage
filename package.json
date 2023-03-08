@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run start --prefix react\" \"npm run develop --prefix strapi\""
+    "dev": "concurrently \"npm run start --prefix react\" \"npm run develop --prefix strapi\"",
+    "build": "npm run build --prefix react && npm run build --prefix strapi",
+    "start": "npx serve -s react/dist",
+    "install": "cd react && npm install && cd .. && cd strapi && npm install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "serve": "^14.2.0"
   }
 }
