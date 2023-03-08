@@ -4,7 +4,8 @@
   "info": {
     "singularName": "member",
     "pluralName": "members",
-    "displayName": "member"
+    "displayName": "member",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,20 +16,23 @@
       "type": "string"
     },
     "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "about": {
-      "type": "richtext"
+      ]
     },
     "rank": {
       "type": "string"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::post.post"
     }
   }
 }

@@ -3,6 +3,10 @@
 @tailwind utilities;
 @tailwind animate;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .brightness {
   filter: brightness(225%);
 }

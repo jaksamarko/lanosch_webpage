@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ProfileSocials } from "../../data/TeamMembers";
-import MemberInterface from "../../interfaces/members.interface";
-import Alert from "../Misc/Alert";
+import MemberInterface from "../../interfaces/member.interface";
 
 const TeamProfile = (data: MemberInterface) => {
   const [alertState, setAlertState] = useState<any[]>([]);
@@ -64,18 +63,20 @@ const TeamProfile = (data: MemberInterface) => {
 
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-1/4">
-      <div className="wow fadeInUp mb-10" data-wow-delay=".1s">
+      <div className="mb-10">
         <div className="h-[170px] relative z-10 mx-auto mb-6 w-[170px] rounded-full block">
-          <img
-            src={data.attributes.url}
-            className="w-full rounded-full transition group-hover:rotate-6 group-hover:scale-125"
-          />
+          <a href={`posts/${data.attributes.post.data?.id}`}>
+            <img
+              src={data.attributes.avatar.url}
+              className="w-full rounded-full h-full object-cover hover:scale-110 duration-300"
+            />
+          </a>
         </div>
         <div className="text-center">
-          <h4 className="mb-2 text-lg font-medium text-dark">
+          <h4 className="-mb-4 text-lg font-medium text-dark">
             {data.attributes.name}
           </h4>
-          <p className="mb-5 text-sm font-medium text-body-color">
+          <p className="mb-2 text-sm font-medium text-body-color">
             {data.attributes.rank}
           </p>
           {/* <div className="flex items-center justify-center">

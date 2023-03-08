@@ -1,4 +1,15 @@
+import { Parallax, Background } from "react-parallax";
+
 const Header = () => {
+  return (
+    <Parallax
+      className="w-full"
+      style={{ height: "550px" }}
+      bgImage="/assets/images/banner.jpg"
+      strength={150}
+    ></Parallax>
+  );
+
   return (
     <div
       id="home"
@@ -19,20 +30,18 @@ const Header = () => {
               </p>
             </div>
           </div>
-
+          <div className="mt-16">
+            <img
+              src={"/assets/images/banner.jpg"}
+              alt="banner"
+              className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
+            />
+          </div>
           <div className="w-full px-4 mb-10">
             <div
               className="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
               data-wow-delay=".25s"
-            >
-              <div className="mt-16">
-                <img
-                  src={"/assets/images/banner.jpg"}
-                  alt="banner"
-                  className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
-                />
-              </div>
-            </div>
+            ></div>
           </div>
         </div>
       </div>

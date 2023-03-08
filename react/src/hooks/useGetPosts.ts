@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import { BlogPost } from "../interfaces/blogPost.interface";
+import jsonFetch from "../util/jsonFetch";
+import replaceImageUrl from "../util/replaceImageUrl";
+
+const fields = "&fields[0]=title&fields[1]=tags&fields[2]=description";
 
 function useGetPosts() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    fetch(`${(import.meta as any).env.VITE_BACKEND}/api/posts`)
-      .then((res) => res.json())
-      .then((post) => {
-        console.log("Hook");
-        console.log(post.data);
-        setPosts(post.data);
-      });
+    jsonFetch(
+      `/api/posts?populate=*${fields}`,
+      ({ data }: { data: BlogPost[] }) => {
+        data.forEach((post) => {
+          replaceImageUrl(post.attributes.header);
+        });
+        setPosts(data);
+      }
+    );
   }, []);
 
   return posts;

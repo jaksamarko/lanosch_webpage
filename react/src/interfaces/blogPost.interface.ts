@@ -1,3 +1,5 @@
+import CmsInterface from "./cmsImage.interface";
+
 export interface BlogBadge {
   text?: string;
   style?: string;
@@ -6,6 +8,8 @@ export interface BlogBadge {
 export interface BlogPost {
   id: string;
   attributes: {
+    description: string;
+    header: CmsInterface;
     content: string;
     createdAt: string;
     tags: string;
